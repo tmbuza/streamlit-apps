@@ -18,15 +18,13 @@ option = st.selectbox(
 # Navigation based on selected model
 if option == "Linear Regression":
     st.write("### Linear Regression Model")
-    st.write("To use the Linear Regression model, open `linear_regression.py`.")
-    st.write("You can view synthetic data, basic metrics, and visualizations related to linear regression.")
+    st.write("To explore the Linear Regression model, visit the app using the link below:")
+    st.markdown("[Open Linear Regression App](https://tmbuza-linear-regression-demo.streamlit.app/)")
 elif option == "Logistic Regression":
     st.write("### Logistic Regression Model")
-    st.write("To use the Logistic Regression model, open `logistic_regression.py`.")
-    st.write("This app will show synthetic data, model metrics, and basic classification visualizations.")
+    st.write("The Logistic Regression model will be available soon.")
 elif option == "Decision Tree":
     st.write("### Decision Tree Model")
-    st.write("Explore the Decision Tree model by opening `decision_tree.py`.")
-    st.write("View synthetic data and model results with decision tree-based insights.")
+    st.write("The Decision Tree model will be available soon.")
 else:
     st.write("Please select a model from the dropdown to begin.")
