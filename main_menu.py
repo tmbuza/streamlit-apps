@@ -12,7 +12,7 @@ Each model app demonstrates basic functionality and visualization for educationa
 # Model selection
 option = st.selectbox(
     "Choose a model to explore:",
-    ("Select a model", "Linear Regression", "Logistic Regression", "Decision Tree")
+    ["Select a model", "Linear Regression", "Logistic Regression", "Decision Tree"]
 )
 
 # Navigation based on selected model
@@ -26,7 +26,7 @@ elif option == "Logistic Regression":
     st.markdown("[Open Logistic Regression App](https://tmbuza-logistic-regression-demo.streamlit.app/)")
 elif option == "Decision Tree":
     st.write("### Decision Tree Model")
-    st.write("To explore the Decision Tree Model, visit the app using the link below:")
+    st.write("To explore the Decision Tree model, visit the app using the link below:")
     st.markdown("[Open Decision Tree App](https://tmbuza-decision-tree-demo.streamlit.app/)")
-else:
+elif option == "Select a model":
     st.write("Please select a model from the dropdown to begin.")
