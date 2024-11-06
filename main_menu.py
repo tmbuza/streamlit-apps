@@ -22,9 +22,11 @@ if option == "Linear Regression":
     st.markdown("[Open Linear Regression App](https://tmbuza-linear-regression-demo.streamlit.app/)")
 elif option == "Logistic Regression":
     st.write("### Logistic Regression Model")
-    st.write("The Logistic Regression model will be available soon.")
+    st.write("To explore the Logistic Regression model, visit the app using the link below:")
+    st.markdown("[Open Logistic Regression App](https://tmbuza-logistic-regression-demo.streamlit.app/)")
 elif option == "Decision Tree":
     st.write("### Decision Tree Model")
-    st.write("The Decision Tree model will be available soon.")
+    st.write("To explore the Decision Tree Model, visit the app using the link below:")
+    st.markdown("[Open Decision Tree App](https://tmbuza-decision-tree-demo.streamlit.app/)")
 else:
     st.write("Please select a model from the dropdown to begin.")
