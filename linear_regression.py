@@ -43,10 +43,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Train the model
 st.write("### Step 3: Training the Model")
 st.write("""
-The app uses a Linear Regression model to fit a plane in 3D space based on two input features.
-This is a step up from single-feature linear regression and better represents real-world scenarios, where models 
-often include multiple features to make predictions. Once trained, the model can make predictions on unseen data.
+This app uses a Linear Regression model to capture the relationship between two input features and a target variable. 
+By representing this relationship in a 3D space, the model mimics real-world scenarios where multiple features are considered to improve prediction accuracy.
+Once trained, the model can make predictions on new, unseen data.
 """)
+
 model = LinearRegression()
 model.fit(X_train, y_train)
 
