@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-import plotly.express as px
+import plotly.graph_objects as go
 
 # Title and introduction
 st.title("Linear Regression Model")
@@ -70,8 +70,6 @@ st.write(f"- Mean Absolute Error (MAE): {mae:.2f}")
 st.write(f"- Mean Squared Error (MSE): {mse:.2f}")
 st.write(f"- R² Score: {r2:.2f}")
 
-import plotly.graph_objects as go
-
 # Interactive plot using Plotly
 st.write("""
 ### Step 5: Visualizing Predictions with Plotly
@@ -111,8 +109,9 @@ fig.update_layout(
 # Show the plot in the Streamlit app
 st.plotly_chart(fig)
 
-
+# Add transition to the full practical guide link
 st.write("""
+---
 
 ### Learn More
 
