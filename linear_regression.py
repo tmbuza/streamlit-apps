@@ -110,3 +110,15 @@ fig.update_layout(
 
 # Show the plot in the Streamlit app
 st.plotly_chart(fig)
+
+
+st.write("""
+
+### Learn More
+
+For a deeper understanding of the Linear Regression technique and other machine learning models, check out the full **Practical Guide to Mastering Machine Learning Techniques**.
+
+[Read the full practical guide here](https://complexdatainsights.com//machine-learning/chapter2)
+
+This guide offers a hands-on exploration of key concepts, including model implementation, training, evaluation, and deployment. Perfect for beginners and those looking to deepen their knowledge of machine learning.
+""")
