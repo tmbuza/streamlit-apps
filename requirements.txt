@@ -7,3 +7,4 @@ joblib
 fastapi
 uvicorn
 seaborn
+plotly==5.24.1

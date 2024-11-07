@@ -10,8 +10,9 @@ Each model app demonstrates basic functionality and visualization for educationa
 """)
 
 # Model selection
-option = st.selectbox(
-    "Choose a model to explore:",
+st.write("### Choose a Model to Explore:")
+option = st.radio(
+    "",  # Empty label to keep the radio button section clean
     ["Select a model", "Linear Regression", "Logistic Regression", "Decision Tree"]
 )
 
@@ -29,4 +30,4 @@ elif option == "Decision Tree":
     st.write("To explore the Decision Tree model, visit the app using the link below:")
     st.markdown("[Open Decision Tree App](https://tmbuza-decision-tree-demo.streamlit.app/)")
 elif option == "Select a model":
-    st.write("Please select a model from the dropdown to begin.")
+    st.write("Please select a model from the options above to begin.")
