@@ -41,7 +41,7 @@ elif option == "Support Vector Machine":
 elif option == "K-Nearest Neighbors":
     st.write("### K-Nearest Neighbors Model")
     st.write("To explore the K-Nearest Neighbors model, visit the app using the link below:")
-    st.markdown("[Open K-Nearest Neighbors App](https://tmbuza-k-nearest-neighbor-demo.streamlit.app/)")
+    st.markdown("[Open K-Nearest Neighbors App](https://tmbuza-k-nearest-neighbors-demo.streamlit.app//)")
 elif option == "Naive Bayes":
     st.write("### Naive Bayes Model")
     st.write("To explore the Naive Bayes model, visit the app using the link below:")
