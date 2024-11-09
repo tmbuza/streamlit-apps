@@ -40,38 +40,49 @@ st.write("## Model Demo Apps")
 st.write("Explore live, interactive apps demonstrating machine learning models:")
 
 # Navigation to model demos
-model_options = [
-    "Select a model", "Linear Regression", "Logistic Regression", "Decision Tree", 
-    "Random Forest", "Support Vector Machine", "K-Nearest Neighbors", 
-    "Naive Bayes", "Gradient Boosting"
-]
-option = st.selectbox("Choose a model to explore:", model_options)
+# Model selection
+st.write("### Choose a Model to Explore:")
+option = st.radio(
+    "Select a model",  # Non-empty label for accessibility
+    ["Select a model", "Linear Regression", "Logistic Regression", "Decision Tree", 
+     "Random Forest", "Support Vector Machine", "K-Nearest Neighbors", "Naive Bayes", "Gradient Boosting"],
+)
 
-# Display model-specific links based on selection
+# Navigation based on selected model
 if option == "Linear Regression":
     st.write("### Linear Regression Model")
+    st.write("To explore the Linear Regression model, visit the app using the link below:")
     st.markdown("[Open Linear Regression App](https://tmbuza-linear-regression-demo.streamlit.app/)")
 elif option == "Logistic Regression":
     st.write("### Logistic Regression Model")
+    st.write("To explore the Logistic Regression model, visit the app using the link below:")
     st.markdown("[Open Logistic Regression App](https://tmbuza-logistic-regression-demo.streamlit.app/)")
 elif option == "Decision Tree":
     st.write("### Decision Tree Model")
+    st.write("To explore the Decision Tree model, visit the app using the link below:")
     st.markdown("[Open Decision Tree App](https://tmbuza-decision-tree-demo.streamlit.app/)")
 elif option == "Random Forest":
     st.write("### Random Forest Model")
+    st.write("To explore the Random Forest model, visit the app using the link below:")
     st.markdown("[Open Random Forest App](https://tmbuza-random-forest-demo.streamlit.app/)")
 elif option == "Support Vector Machine":
     st.write("### Support Vector Machine Model")
-    st.markdown("[Open Support Vector Machine App](https://tmbuza-svm-demo.streamlit.app/)")
+    st.write("To explore the Support Vector Machine model, visit the app using the link below:")
+    st.markdown("[Open Support Vector Machine App](https://tmbuza-support-vector-machine-demo.streamlit.app/)")
 elif option == "K-Nearest Neighbors":
     st.write("### K-Nearest Neighbors Model")
-    st.markdown("[Open K-Nearest Neighbors App](https://tmbuza-knn-demo.streamlit.app/)")
+    st.write("To explore the K-Nearest Neighbors model, visit the app using the link below:")
+    st.markdown("[Open K-Nearest Neighbors App](https://tmbuza-k-nearest-neighbor-demo.streamlit.app/)")
 elif option == "Naive Bayes":
     st.write("### Naive Bayes Model")
+    st.write("To explore the Naive Bayes model, visit the app using the link below:")
     st.markdown("[Open Naive Bayes App](https://tmbuza-naive-bayes-demo.streamlit.app/)")
 elif option == "Gradient Boosting":
     st.write("### Gradient Boosting Model")
+    st.write("To explore the Gradient Boosting model, visit the app using the link below:")
     st.markdown("[Open Gradient Boosting App](https://tmbuza-gradient-boosting-demo.streamlit.app/)")
+elif option == "Select a model":
+    st.write("Please select a model from the options above to begin.")
 
 # Transition from Model Demos to Practical Guides
 st.write("""
