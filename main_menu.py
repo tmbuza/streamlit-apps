@@ -12,8 +12,9 @@ Each model app demonstrates basic functionality and visualization for educationa
 # Model selection
 st.write("### Choose a Model to Explore:")
 option = st.radio(
-    "",  # Empty label to keep the radio button section clean
-    ["Select a model", "Linear Regression", "Logistic Regression", "Decision Tree"]
+    "Select a model",  # Non-empty label for accessibility
+    ["Select a model", "Linear Regression", "Logistic Regression", "Decision Tree", 
+     "Random Forest", "Support Vector Machine", "K-Nearest Neighbors", "Naive Bayes", "Gradient Boosting"],
 )
 
 # Navigation based on selected model
@@ -29,5 +30,25 @@ elif option == "Decision Tree":
     st.write("### Decision Tree Model")
     st.write("To explore the Decision Tree model, visit the app using the link below:")
     st.markdown("[Open Decision Tree App](https://tmbuza-decision-tree-demo.streamlit.app/)")
+elif option == "Random Forest":
+    st.write("### Random Forest Model")
+    st.write("To explore the Random Forest model, visit the app using the link below:")
+    st.markdown("[Open Random Forest App](https://tmbuza-random-forest-demo.streamlit.app/)")
+elif option == "Support Vector Machine":
+    st.write("### Support Vector Machine Model")
+    st.write("To explore the Support Vector Machine model, visit the app using the link below:")
+    st.markdown("[Open Support Vector Machine App](https://tmbuza-svm-demo.streamlit.app/)")
+elif option == "K-Nearest Neighbors":
+    st.write("### K-Nearest Neighbors Model")
+    st.write("To explore the K-Nearest Neighbors model, visit the app using the link below:")
+    st.markdown("[Open K-Nearest Neighbors App](https://tmbuza-knn-demo.streamlit.app/)")
+elif option == "Naive Bayes":
+    st.write("### Naive Bayes Model")
+    st.write("To explore the Naive Bayes model, visit the app using the link below:")
+    st.markdown("[Open Naive Bayes App](https://tmbuza-naive-bayes-demo.streamlit.app/)")
+elif option == "Gradient Boosting":
+    st.write("### Gradient Boosting Model")
+    st.write("To explore the Gradient Boosting model, visit the app using the link below:")
+    st.markdown("[Open Gradient Boosting App](https://tmbuza-gradient-boosting-demo.streamlit.app/)")
 elif option == "Select a model":
     st.write("Please select a model from the options above to begin.")
