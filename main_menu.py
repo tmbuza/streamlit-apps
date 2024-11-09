@@ -37,11 +37,11 @@ elif option == "Random Forest":
 elif option == "Support Vector Machine":
     st.write("### Support Vector Machine Model")
     st.write("To explore the Support Vector Machine model, visit the app using the link below:")
-    st.markdown("[Open Support Vector Machine App](https://tmbuza-svm-demo.streamlit.app/)")
+    st.markdown("[Open Support Vector Machine App](https://tmbuza-support-vector-machine-demo.streamlit.app/)")
 elif option == "K-Nearest Neighbors":
     st.write("### K-Nearest Neighbors Model")
     st.write("To explore the K-Nearest Neighbors model, visit the app using the link below:")
-    st.markdown("[Open K-Nearest Neighbors App](https://tmbuza-knn-demo.streamlit.app/)")
+    st.markdown("[Open K-Nearest Neighbors App](https://tmbuza-k-nearest-neighbor-demo.streamlit.app/)")
 elif option == "Naive Bayes":
     st.write("### Naive Bayes Model")
     st.write("To explore the Naive Bayes model, visit the app using the link below:")
