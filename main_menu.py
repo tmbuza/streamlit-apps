@@ -52,3 +52,4 @@ elif option == "Gradient Boosting":
     st.markdown("[Open Gradient Boosting App](https://tmbuza-gradient-boosting-demo.streamlit.app/)")
 elif option == "Select a model":
     st.write("Please select a model from the options above to begin.")
+    
