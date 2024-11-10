@@ -10,6 +10,14 @@ st.write("""
     transactional dataset as an example and apply the Apriori algorithm to discover association rules.
 """)
 
+
+# Sidebar for user input
+st.sidebar.header("Set Parameters")
+
+# Allow users to adjust min_support and min_threshold
+min_support = st.sidebar.slider("Min Support", 0.0, 1.0, 0.5, 0.01)
+min_threshold = st.sidebar.slider("Min Confidence Threshold", 0.0, 1.0, 0.5, 0.01)
+
 # Example transactional data (1 means the item is present, 0 means it's absent)
 data = {
     'Bread': [1, 1, 0, 1, 1],
