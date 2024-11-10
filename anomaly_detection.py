@@ -4,14 +4,23 @@ from sklearn.ensemble import IsolationForest
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 # Title and description
-st.title("Anomaly Detection with Isolation Forest")
+st.title("Anomaly Detection")
 st.write("""
-    This application demonstrates Anomaly Detection using the Isolation Forest algorithm.
-    We use a small dataset where we introduce some anomalies, and the algorithm detects them.
+    This application demonstrates anomaly detection using an Isolation Forest model.
+    Anomalies, or outliers, are data points that deviate significantly from other observations.
+    Detecting them is important in various fields, such as fraud detection, network security, and quality control.
 """)
 
 # Generate sample data with anomalies
+st.write("### Generating Sample Data with Anomalies")
+st.write("""
+    In this section, we create a synthetic dataset that includes both normal data points 
+    and a few anomalies. These anomalies are intentionally crafted as points that lie far 
+    from the normal distribution of data, allowing the model to detect them as outliers.
+""")
+
 # Creating a simple 2D dataset with some anomalies
 np.random.seed(42)
 normal_data = np.random.randn(100, 2)  # Normal points (100)
@@ -26,6 +35,16 @@ st.write("### Sample Data", df.head())
 
 # Applying Isolation Forest
 st.write("### Running Isolation Forest for Anomaly Detection")
+st.write("""
+    The Isolation Forest algorithm is a tree-based model that identifies anomalies by isolating 
+    observations that differ significantly from others in the dataset. Unlike traditional density- or 
+    distance-based methods, Isolation Forest isolates anomalies by partitioning the data. Anomalies 
+    are isolated faster as they are fewer and farther from the dense regions of normal data. 
+
+    Here, we set the contamination level to 5%, meaning the model will consider the top 5% of points 
+    most different from others as anomalies.
+""")
+
 clf = IsolationForest(contamination=0.1)  # Assume 10% of the points are anomalies
 pred = clf.fit_predict(df)
 
