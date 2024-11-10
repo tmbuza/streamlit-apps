@@ -35,7 +35,18 @@ df = pd.DataFrame(data)
 st.write("### Sample Dataset", df)
 
 # Convert the DataFrame to frequent itemsets using the Apriori algorithm
-# st.write("### Running Apriori Algorithm")
+st.write("### Running Apriori Algorithm")
+st.write("""
+    In this section, we apply the **Apriori algorithm**, a classical association rule learning algorithm, 
+    to extract frequent itemsets and derive association rules from the transaction data. The goal of 
+    the Apriori algorithm is to identify relationships between variables in large datasets, which can be 
+    used for various purposes, including market basket analysis, product recommendations, and fraud detection.
+    
+    The algorithm works by identifying frequent itemsets in the dataset, followed by extracting association 
+    rules based on these itemsets. Here, we use the `mlxtend` library to perform the Apriori algorithm and 
+    extract the association rules.
+""")
+
 frequent_itemsets = apriori(df, min_support=0.5, use_colnames=True)
 
 # Calculate association rules using MLxtend's `association_rules` function
