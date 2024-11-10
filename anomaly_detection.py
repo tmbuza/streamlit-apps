@@ -4,6 +4,10 @@ from sklearn.ensemble import IsolationForest
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Sidebar for parameter settings
+st.sidebar.title("Isolation Forest Parameters")
+contamination = st.sidebar.slider("Contamination", min_value=0.01, max_value=0.5, value=0.1, step=0.01)
+n_estimators = st.sidebar.slider("Number of Estimators", min_value=50, max_value=200, value=100, step=10)
 
 # Title and description
 st.title("Anomaly Detection")
@@ -28,24 +32,20 @@ outliers = np.random.uniform(low=-6, high=6, size=(10, 2))  # Anomalies (10)
 
 # Combine the data
 data = np.vstack([normal_data, outliers])
-
 df = pd.DataFrame(data, columns=['Feature 1', 'Feature 2'])
 
 st.write("### Sample Data", df.head())
 
 # Applying Isolation Forest
 st.write("### Running Isolation Forest for Anomaly Detection")
-st.write("""
+st.write(f"""
     The Isolation Forest algorithm is a tree-based model that identifies anomalies by isolating 
-    observations that differ significantly from others in the dataset. Unlike traditional density- or 
-    distance-based methods, Isolation Forest isolates anomalies by partitioning the data. Anomalies 
-    are isolated faster as they are fewer and farther from the dense regions of normal data. 
-
-    Here, we set the contamination level to 5%, meaning the model will consider the top 5% of points 
-    most different from others as anomalies.
+    observations that differ significantly from others in the dataset. Here, we set the 
+    contamination level to **{contamination}**, meaning the model will consider this proportion of points 
+    as anomalies. The model uses **{n_estimators} estimators** (trees) to improve detection.
 """)
 
-clf = IsolationForest(contamination=0.1)  # Assume 10% of the points are anomalies
+clf = IsolationForest(contamination=contamination, n_estimators=n_estimators, random_state=42)
 pred = clf.fit_predict(df)
 
 # Add anomaly predictions to the DataFrame (1 = normal, -1 = anomaly)
@@ -74,7 +74,7 @@ st.write("""
     
     ### Key Concepts:
     - **Isolation Forest** works by isolating observations that are few and different. The algorithm identifies anomalies by constructing trees where the anomalies are more likely to be isolated.
-    - **Contamination**: In this example, we set the contamination parameter to 0.1, which means we expect 10% of the data to be anomalies.
+    - **Contamination**: In this example, we set the contamination parameter to the value selected on the sidebar, which indicates the expected proportion of anomalies.
     - **Anomalies** are marked with `-1` and normal points with `1`.
     
     ### Practical Use:
