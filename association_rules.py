@@ -1,13 +1,19 @@
 import pandas as pd
 import streamlit as st
 from apyori import apriori
+import plotly.express as px
+
+# Sidebar for parameter settings
+st.sidebar.title("Apriori Parameters")
+min_support = st.sidebar.slider("Minimum Support", min_value=0.1, max_value=1.0, value=0.5, step=0.1)
+min_confidence = st.sidebar.slider("Minimum Confidence", min_value=0.1, max_value=1.0, value=0.5, step=0.1)
+min_lift = st.sidebar.slider("Minimum Lift", min_value=1.0, max_value=5.0, value=1.0, step=0.1)
 
 # Title and description
 st.title("Association Rule Learning (Apriori)")
 st.write("""
     This application demonstrates Association Rule Learning using the Apriori algorithm.
-    It finds interesting relationships between items in a dataset. In this example, we use a small transactional dataset.
-    We will apply the Apriori algorithm to discover association rules and then interpret the results.
+    Adjust the minimum support, confidence, and lift on the sidebar to explore how they impact the rules generated.
 """)
 
 # Example transactional data (1 means the item is present, 0 means it's absent)
@@ -33,9 +39,9 @@ for index, row in df.iterrows():
 # Display the list of transactions for transparency
 st.write("### List of Transactions", transactions)
 
-# Apply Apriori algorithm to find frequent itemsets
+# Apply Apriori algorithm to find frequent itemsets with dynamic parameters
 st.write("### Running Apriori Algorithm")
-rules = apriori(transactions, min_support=0.5, min_confidence=0.5, min_lift=1.0, min_length=2)
+rules = apriori(transactions, min_support=min_support, min_confidence=min_confidence, min_lift=min_lift, min_length=2)
 
 # Convert the results into a list
 rules_list = list(rules)
@@ -56,8 +62,8 @@ else:
     # Extract the rule details
     for rule in rules_list:
         for ordered_stat in rule.ordered_statistics:
-            antecedents = ordered_stat.items_base
-            consequents = ordered_stat.items_add
+            antecedents = ', '.join(list(ordered_stat.items_base))
+            consequents = ', '.join(list(ordered_stat.items_add))
             confidence = ordered_stat.confidence
             lift = ordered_stat.lift
             support = rule.support
@@ -80,9 +86,22 @@ else:
     # Display the rules in a table
     st.write(rules_df)
 
+    # Interactive Scatter Plot for Support, Confidence, and Lift
+    st.write("### Interactive Visualization of Association Rules")
+    fig = px.scatter(
+        rules_df,
+        x="Support",
+        y="Confidence",
+        size="Lift",
+        color="Lift",
+        hover_data=['Antecedents', 'Consequents'],
+        title="Association Rules - Support vs Confidence",
+        labels={"Support": "Support", "Confidence": "Confidence", "Lift": "Lift"}
+    )
+    st.plotly_chart(fig)
+
     # Application and Interpretation Section
     st.write("### Application and Interpretation of Association Rules")
-
     st.write("""
     In association rule learning, we aim to find interesting relationships between items in a dataset. 
     The rules consist of:
