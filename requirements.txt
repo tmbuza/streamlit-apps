@@ -8,4 +8,4 @@ fastapi
 uvicorn
 seaborn
 plotly==5.24.1
-mlxtend
+mlxtend==0.23.2
