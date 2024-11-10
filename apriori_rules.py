@@ -1,6 +1,10 @@
 import pandas as pd
 import streamlit as st
 from mlxtend.frequent_patterns import apriori, association_rules
+import warnings
+
+# Suppress warnings
+warnings.filterwarnings('ignore')
 
 # Title and description
 st.title("Apriori Rule Learning")
@@ -31,8 +35,12 @@ df = pd.DataFrame(data)
 st.write("### Sample Dataset", df)
 
 # Convert the DataFrame to frequent itemsets using the Apriori algorithm
-st.write("### Running Apriori Algorithm")
+# st.write("### Running Apriori Algorithm")
 frequent_itemsets = apriori(df, min_support=0.5, use_colnames=True)
+
+# Calculate association rules using MLxtend's `association_rules` function
+# Add the required 'num_itemsets' parameter to avoid the TypeError
+rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.5, num_itemsets=len(frequent_itemsets))
 
 # Calculate association rules using MLxtend's `association_rules` function
 # Add the required 'num_itemsets' parameter to avoid the TypeError
@@ -42,8 +50,14 @@ rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=
 if rules.empty:
     st.write("No association rules found based on the given thresholds.")
 else:
+    # Convert the frozensets in 'antecedents' and 'consequents' columns to strings
+    rules['antecedents'] = rules['antecedents'].apply(lambda x: ', '.join(list(x)))
+    rules['consequents'] = rules['consequents'].apply(lambda x: ', '.join(list(x)))
+
+    # Display the updated DataFrame
     st.write("### Association Rules Found:")
     st.write(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']])
+
 
 # Application and Interpretation Section
 st.write("### Application and Interpretation of Association Rules")
