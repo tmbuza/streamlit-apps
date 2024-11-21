@@ -116,7 +116,7 @@ st.write("""
 
 For a deeper understanding of Linear Regression and other machine learning models, check out the full **Practical Guide to Mastering Machine Learning Techniques**.
 
-[Read the full practical guide here](https://complexdatainsights.com/product/chapter2-linear-regression/)
+[Read the full practical guide here](https://complexdatainsights.com/product/chapter-2-linear-regression/)
 
 This guide offers hands-on exploration of key concepts, including model implementation, training, evaluation, and deployment.
 Ideal for both beginners and those looking to deepen their machine learning knowledge.
